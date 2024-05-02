@@ -15,4 +15,5 @@ class Driver extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
 }

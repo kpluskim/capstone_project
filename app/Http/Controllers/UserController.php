@@ -18,4 +18,5 @@ class UserController extends Controller
         return $users->toJson(JSON_PRETTY_PRINT);
     
        }
+   
 }
