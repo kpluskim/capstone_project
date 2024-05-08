@@ -22,7 +22,7 @@ class CarFactory extends Factory
             'model'=> fake()->randomElement(['ventury','celerio','Jazz']),
             'transmission'=> fake()->randomElement(['Automatic','Manual']),
             'gas_type'=> fake()->randomElement(['gasoline','deisel']),
-            'model_year'=> fake()->randomElement(['2018','2019','2020']),
+            'year_model'=> fake()->randomElement(['2018','2019','2020']),
             'number_of_seats'=> fake()->numberBetween(4, 16),
             'type'=> fake()->randomElement(['van','sedan','suv']),
         ];

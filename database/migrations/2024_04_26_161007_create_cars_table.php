@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('transmission');
             $table->string('gas_type');
-            $table->string('model_year');
+            $table->string('year_model');
             $table->integer('number_of_seats');
             $table->string('type');
             $table->timestamps();

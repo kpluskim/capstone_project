@@ -25,7 +25,7 @@ class BookingController extends Controller
         $booking->transaction_id = $request->transaction_id;
         $booking->save();
 
-        return response()->json(['message' => ['Booked.'], 201]);
+        return response()->json(['message' => ['Booked Success.'], 201]);
         }
 
         
@@ -38,10 +38,10 @@ class BookingController extends Controller
                 ]);
             }
     
-            $booking->user_id = $request->user_id;
-            $booking->car_id = $request->car_id;
-            $booking->driver_id = $request->driver_id;
-            $booking->transaction_id = $request->transaction_id;
+            $booking->user_id = $request->user_id ?? $booking->user_id;
+            $booking->car_id = $request->car_id ?? $booking->car_id;
+            $booking->driver_id = $request->driver_id ?? $booking->driver_id;
+            $booking->transaction_id = $request->transaction_id ?? $booking->transaction_id;
             $booking->save();
     
             return response()->json(['Updated' => $request->id]);

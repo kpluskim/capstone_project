@@ -42,10 +42,10 @@ class TransactionController extends Controller
             ]);
         }
 
-        $transaction->status = $request->status;
-        $transaction->fee = $request->fee;
-        $transaction->payment_method = $request->payment_method;
-        $transaction->user_id = $request->user_id;
+        $transaction->status = $request->status ?? $transaction->status;
+        $transaction->fee = $request->fee ?? $transaction->fee;
+        $transaction->payment_method = $request->payment_method ?? $transaction->payment_method;
+        $transaction->user_id = $request->user_id ?? $transaction->user_id;
         $transaction->save();
 
         return response()->json(['success' => $request->id]);

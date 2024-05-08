@@ -21,7 +21,7 @@ class CarController extends Controller
         $car->model = $request->model;
         $car->transmission = $request->transmission;
         $car->gas_type = $request->gas_type;
-        $car->model_year = $request->model_year;
+        $car->year_model = $request->year_model;
         $car->number_of_seats = $request->number_of_seats;
         $car->type = $request ->type;
         $car->save();
@@ -39,10 +39,10 @@ class CarController extends Controller
     
             $car->price = $request->price ?? $car->price;           // replace this to valididation
             $car->make = $request->make ?? $car->make;
-            $car->model = $request->model;
+            $car->model = $request->model ?? $car->model;
             $car->transmission = $request->transmission ?? $car->transmission;
             $car->gas_type = $request->gas_type ?? $car->gas_type;
-            $car->model_year = $request->model_year ?? $car->model_year;
+            $car->year_model = $request->year_model ?? $car->year_model;
             $car->number_of_seats = $request->number_of_seats ?? $car->number_of_seats;
             $car->type = $request ->type ?? $car->type;
             $car->save();
