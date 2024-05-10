@@ -8,12 +8,13 @@ use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
-    public function Transaction_get(){
+    public function Transaction_get() {
 
         $transactions = Transaction::with('user')->get();
         return $transactions->toJson(JSON_PRETTY_PRINT);
     }
-    public function transaction_create(Request $request){
+
+    public function transaction_create(Request $request) {
 
         $user = User::find($request->user_id);
         if (!$user) {
@@ -30,10 +31,11 @@ class TransactionController extends Controller
         $transaction->user_id = $request->user_id;
         $transaction->save();
 
-        return response()->json(['success' => $request->id]);
+        return response()->json(['success' => $transaction->id]);
         
     }
-    public function transaction_update(Request $request){
+
+    public function transaction_update(Request $request) {
         $transaction = Transaction::find($request->id);  //upon updating if id not found cannot update
         if (!$transaction) {
             return response()->json([
@@ -48,6 +50,6 @@ class TransactionController extends Controller
         $transaction->user_id = $request->user_id ?? $transaction->user_id;
         $transaction->save();
 
-        return response()->json(['success' => $request->id]);
+        return response()->json(['success' => $transaction->id]);
     }
 }

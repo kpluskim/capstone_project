@@ -14,7 +14,6 @@ class DriverController extends Controller
         
     public function driver_create(Request $request){
         // to do add validation later
-
         $driver = new Driver();
         $driver->first_name = $request->first_name;
         $driver->last_name = $request->last_name;
@@ -24,6 +23,7 @@ class DriverController extends Controller
 
         return response()->json(['message' => ['Driver has been successfully created.'], 201]);
     }
+
     public function driver_update(Request $request){
         $driver = Driver::find($request->id);  //validation: upon updating if id not found cannot update
         if (!$driver) {
