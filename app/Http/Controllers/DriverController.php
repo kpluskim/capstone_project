@@ -39,6 +39,6 @@ class DriverController extends Controller
         $driver->gender = $request->gender ?? $driver->gender;
         $driver->save();
 
-        return response()->json(['success' => $request->id]);
+        return response()->json(['Successfully Updated' => $request->id]);
     }
 }

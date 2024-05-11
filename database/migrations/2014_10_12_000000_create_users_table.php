@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('address');
+            $table->date('birthdate')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();

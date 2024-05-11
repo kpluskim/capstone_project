@@ -29,6 +29,8 @@ Route::post('/authenticate', [UserController::class,'authenticate']);
 
 // User
 Route::get('/users/user_get', [UserController::class,'user_get']);
+Route::post('/users/user_create', [UserController::class, 'user_create']);
+Route::put('/users/user_update/{id}', [UserController::class,'user_update'] );
 
 // Car
 Route::get('/cars/car_get', [CarController::class,'car_get'] );

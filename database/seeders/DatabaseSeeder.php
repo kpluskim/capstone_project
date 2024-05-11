@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'first_name' => 'Kim',
              'last_name'=> 'Diaz',
              'email' => 'test@example.com',
-             'password' => 'password',
+             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
              'is_admin'=> true,
              'address'=> 'address',
          ]);
