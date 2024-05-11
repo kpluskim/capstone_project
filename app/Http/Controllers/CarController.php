@@ -9,7 +9,7 @@ class CarController extends Controller
 {
     public function car_get() {
         $cars = Car::all();
-        return $cars->toJson(JSON_PRETTY_PRINT);
+        return response()->json($cars, 200);
     }
 
     public function car_create(Request $request) {
@@ -24,7 +24,7 @@ class CarController extends Controller
         $car->type = $request->type;
         $car->save();
 
-        return response()->json(['message' => ['Car has been successfully created.'], 201]);
+        return response()->json($car, 201);
     }
 
     public function car_update(Request $request){
@@ -46,6 +46,6 @@ class CarController extends Controller
         $car->type = $request ->type ?? $car->type;
         $car->save();
 
-        return response()->json(['success' => $request->id]);
+        return response()->json($car, 202);
     }
 }

@@ -9,10 +9,7 @@ class BookingController extends Controller
 {
     public function booking_get(){
         $bookings = Booking::with(['user','car','transaction','driver'])->get();
-        return response()->json([
-            'data' => $bookings,
-            'code' => 200
-        ], 200);
+        return response()->json($bookings, 200);
     }
         
     public function booking_create(Request $request){
@@ -24,10 +21,7 @@ class BookingController extends Controller
         $booking->transaction_id = $request->transaction_id;
         $booking->save();
 
-        return response()->json([
-            'data' => $booking,
-            'code' => 200
-        ], 200);
+        return response()->json($booking, 201);
     }
 
         
@@ -46,9 +40,6 @@ class BookingController extends Controller
         $booking->transaction_id = $request->transaction_id ?? $booking->transaction_id;
         $booking->save();
 
-        return response()->json([
-            'data' => $booking,
-            'code' => 200
-        ], 200);
+        return response()->json($booking, 202);
     }
 }

@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function user_get() {
         $users = User::all();
-        return response()->json($users);
+        return response()->json($users, 200);
     }
    
     public function authenticate(Request $request) {
@@ -43,8 +43,7 @@ class UserController extends Controller
     
         $user->save();
 
-
-        return response()->json(['message' =>['successfully created account'], 201]);
+        return response()->json($user, 201);
     }
 
     public function user_update(Request $request){
@@ -65,5 +64,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
     
         $user->save();
+
+        return response()->json($user, 202);
     }
 }

@@ -11,7 +11,7 @@ class TransactionController extends Controller
     public function Transaction_get() {
 
         $transactions = Transaction::with('user')->get();
-        return $transactions->toJson(JSON_PRETTY_PRINT);
+        return response()->json($transactions);
     }
 
     public function transaction_create(Request $request) {
@@ -31,7 +31,7 @@ class TransactionController extends Controller
         $transaction->user_id = $request->user_id;
         $transaction->save();
 
-        return response()->json(['success' => $transaction->id]);
+        return response()->json($transaction, 201);
         
     }
 
@@ -50,6 +50,6 @@ class TransactionController extends Controller
         $transaction->user_id = $request->user_id ?? $transaction->user_id;
         $transaction->save();
 
-        return response()->json(['success' => $transaction->id]);
+        return response()->json($transaction, 202);
     }
 }

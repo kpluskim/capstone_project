@@ -9,7 +9,7 @@ class DriverController extends Controller
 {
     public function driver_get(){
         $drivers = Driver::all();
-        return $drivers->toJson(JSON_PRETTY_PRINT);
+        return response()->json($drivers, 200);
     }
         
     public function driver_create(Request $request){
@@ -21,7 +21,7 @@ class DriverController extends Controller
         $driver->gender = $request->gender;
         $driver->save();
 
-        return response()->json(['message' => ['Driver has been successfully created.'], 201]);
+        return response()->json($driver, 201);
     }
 
     public function driver_update(Request $request){
@@ -39,6 +39,6 @@ class DriverController extends Controller
         $driver->gender = $request->gender ?? $driver->gender;
         $driver->save();
 
-        return response()->json(['Successfully Updated' => $request->id]);
+        return response()->json($driver, 202);
     }
 }
