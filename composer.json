@@ -46,6 +46,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "run-ui": [
+            "cd frontend && yarn run dev"
         ]
     },
     "extra": {
